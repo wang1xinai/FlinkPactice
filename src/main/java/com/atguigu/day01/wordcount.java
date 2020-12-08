@@ -22,6 +22,12 @@ import org.apache.flink.util.Collector;
  *                低延迟（storm） +
  *                时间语义正确 + 操作简单、表现力好 ...
  *
+ *        比较flink和sparkStreaming:
+ *              1. 数据模型： sparkstreaming采用RDD弹性分布式数据集，
+ *                           flink是流数据/事件序列
+ *              2. 任务：     sparkStreaming将任务划分为不同的stage，下一个stage需要等待上一个stage执行完毕才能执行。
+ *                           flink数据在处理任务间流动，不需要等待
+ *
  *  分层API: SQL/TABLE API
  *           DataStream API  数据流API，主要是无界流；可获得流的信息，可开窗。用DataSet API做有界流
  *           ProcessFunction 自定义状态、时间语义（事件时间/处理时间）、定时器等。以上的所有操作，都可以用ProcessFunction实现
